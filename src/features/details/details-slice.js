@@ -9,7 +9,6 @@ const initState = {
 };
 
 export const loadCountryByName = createAsyncThunk('@@details/loadCountryByName', (name, { extra: { client, api } }) => {
-  console.debug(name);
   return client.get(api.searchByCountry(name));
 });
 
