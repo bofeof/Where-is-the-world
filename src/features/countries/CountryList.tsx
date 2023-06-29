@@ -3,6 +3,8 @@ import { List } from '../../components/List';
 import { Card } from '../../components/Card';
 import { useCountries } from './use-countries';
 
+import { Country, CountryInfo } from 'types';
+
 import { responseStatuses } from '../responseStatuses';
 
 export const CountryList = () => {
@@ -15,8 +17,8 @@ export const CountryList = () => {
       {status === responseStatuses.loading && <h2>{responseStatuses.loading}</h2>}
       {status === responseStatuses.done && (
         <List>
-          {countries.map((c) => {
-            const countryInfo = {
+          {countries.map((c: Country) => {
+            const countryInfo: CountryInfo = {
               img: c.flags.png,
               name: c.name,
               info: [
@@ -35,7 +37,7 @@ export const CountryList = () => {
               ],
             };
 
-            return <Card key={c.name} onClick={() => navigate(`/country/${c.name}`)} {...countryInfo} />;
+            return <Card key={c.name} onClick={() => void navigate(`/country/${c.name}`)} {...countryInfo} />;
           })}
         </List>
       )}
