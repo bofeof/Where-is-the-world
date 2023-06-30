@@ -23,7 +23,7 @@ export type Country = {
   capital: string;
   population: number;
   topLevelDomain: string[];
-  borders: string;
+  borders: string[];
   currencies: Currency[];
   languages: Language[];
 };
