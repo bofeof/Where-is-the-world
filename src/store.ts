@@ -6,7 +6,7 @@ import * as api from './config';
 
 import { themeReducer } from './features/theme/theme-slice';
 import { controlsReducer } from './features/controls/controls-slice';
-import { countryReducer } from './features/countries/countries-slice';
+import { countryReducer } from './features/countries/countries-slice.ts';
 import { detailsReducer } from './features/details/details-slice';
 
 import { persistStore, persistReducer } from 'redux-persist';

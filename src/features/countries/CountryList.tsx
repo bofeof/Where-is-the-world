@@ -5,17 +5,15 @@ import { useCountries } from './use-countries';
 
 import { Country, CountryInfo } from 'types';
 
-import { responseStatuses } from '../responseStatuses';
-
 export const CountryList = () => {
   const navigate = useNavigate();
-  const { status, error, countries } = useCountries();
+  const [status, error, countries] = useCountries();
 
   return (
     <>
-      {error && <h2>{responseStatuses.error}</h2>}
-      {status === responseStatuses.loading && <h2>{responseStatuses.loading}</h2>}
-      {status === responseStatuses.done && (
+      {error && <h2>{error}</h2>}
+      {status === 'loading' && <h2>{'Wait ...'}</h2>}
+      {status === 'received' && (
         <List>
           {countries.map((c: Country) => {
             const countryInfo: CountryInfo = {
