@@ -4,8 +4,14 @@ import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
 
 import { useRegion } from './use-region';
+import { Region } from 'types';
 
-const optionsMap = {
+// Record<Region, {value: Region, label: Region}>
+type RegionOption = {
+  [RegionKey in Region]: { value: RegionKey; label: RegionKey };
+};
+
+const optionsMap: RegionOption = {
   Africa: { value: 'Africa', label: 'Africa' },
   America: { value: 'America', label: 'America' },
   Asia: { value: 'Asia', label: 'Asia' },
@@ -27,7 +33,7 @@ const Wrapper = styled.div`
 `;
 
 export const Controls = () => {
-  const { handleSelectRegion, region } = useRegion();
+  const [handleSelectRegion, region] = useRegion();
   return (
     <Wrapper>
       <Search />
@@ -36,7 +42,7 @@ export const Controls = () => {
         placeholder="Filter by Region"
         isClearable
         isSearchable={false}
-        value={optionsMap[region]}
+        value={region ? optionsMap[region] : ''}
         onChange={handleSelectRegion}
       />
     </Wrapper>

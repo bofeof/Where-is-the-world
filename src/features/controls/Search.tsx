@@ -33,7 +33,7 @@ const Input = styled.input.attrs({
 `;
 
 export const Search = () => {
-  const { handleSetSearch, search } = useSetSearch();
+  const [handleSetSearch, search] = useSetSearch();
 
   return (
     <InputContainer>
