@@ -1,5 +1,4 @@
-import { selectRegion, selectSearch } from '../controls/controls-slice';
-
+import { selectRegion, selectSearch } from 'features/controls/controls-selectors';
 import { selectCountriesInfo, selectVisibleCountries } from './countries-selector';
 import { useEffect } from 'react';
 import { RootState } from 'store';
