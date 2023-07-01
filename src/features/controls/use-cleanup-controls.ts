@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { clearControls } from './controls-slice';
+import { useAppDispatch } from 'redux-hooks';
 
 export const useClean = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleCleanUp = () => {
     dispatch(clearControls());
